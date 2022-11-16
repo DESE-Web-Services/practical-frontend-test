@@ -12,4 +12,4 @@ or leave comments in comments.md about what else they need to look in to or fix.
 
 ## Submitting your response
 
-Please zip your response and email it to adrian.wong@education.gov.au or send a link to a git repo.
+Please zip your response and send a link to an online archive or a git repo to adrian.wong@education.gov.au. *Do not submit a merge request*. 
