@@ -1,0 +1,474 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@100;200;300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 500 5rem "Zilla Slab";
+  letter-spacing: 3px;
+}
+
+@media (min-width: 1280px) {
+  body {
+    font-size: 1.25em !important;
+  }
+}
+a {
+  text-decoration: none;
+  appearance: none;
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75em 1em;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  appearance: none;
+  text-decoration: none;
+}
+.button:hover {
+  background: white;
+  color: black;
+}
+
+h1 {
+  margin-top: -0.2em;
+  padding-bottom: 0.25em;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 100;
+  color: #333;
+}
+a:hover {
+  text-deoration: none;
+  font-weight: 800;
+}
+
+.wrapper {
+  transition: all 0.2s;
+}
+
+.header-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 475px;
+  overflow: hidden;
+  color: white;
+}
+.header-wrapper:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+}
+.header-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+.header-wrapper .overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+}
+.header-wrapper .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://picsum.photos/seed/1243/2000/800.webp") no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(60%);
+  transition: 1s filter linear;
+  z-index: -1;
+}
+.header-wrapper:hover .header-background {
+  filter: grayscale(0%);
+  transition: 1s filter linear;
+}
+.header-wrapper .hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.header-wrapper .hero header {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0em;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+}
+.header-wrapper .hero subhead {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+}
+.header-wrapper .hero .cta {
+  display: block;
+  margin: 1em auto;
+  max-width: 200px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+}
+.header-wrapper .logo {
+  display: inline-block;
+  margin: 0.5em auto;
+  background: white;
+  padding: 1em;
+  padding-bottom: 0.75em;
+  color: black;
+  font-weight: 800;
+  font-size: 1.5em;
+  text-align: center;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+}
+.header-wrapper .logo div {
+  font-size: 3em;
+  line-height: 0.75em;
+}
+.header-wrapper .logo span {
+  font-size: 0.75em;
+  font-weight: 400;
+  position: relative;
+  background: white;
+  padding: 0.4em;
+  z-index: 1;
+}
+.header-wrapper .logo span:after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 0.075em;
+  width: 125%;
+  background: black;
+  z-index: -1;
+}
+.header-wrapper .nav {
+  z-index: 2;
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 1280px;
+  user-select: none;
+  font-size: 1rem;
+}
+.header-wrapper .nav .links {
+  display: inline-block;
+  float: right;
+  margin-top: 0.5em;
+}
+.header-wrapper .nav .links a {
+  color: #fff !important;
+}
+@media (max-width: 768px) {
+  .header-wrapper .nav .links {
+    display: none;
+  }
+}
+.header-wrapper .nav .links .link {
+  display: inline-block;
+  margin-left: 0.5em;
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+}
+.header-wrapper .nav .links .link:after {
+  content: "";
+  position: absolute;
+  bottom: -0.25em;
+  left: 0;
+  width: 0%;
+  height: 0.075em;
+  background: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s;
+}
+.header-wrapper .nav .links .link:hover:after {
+  content: "";
+  width: 100%;
+}
+.header-wrapper .nav .links .link:last-of-type {
+  margin-right: 0;
+}
+
+.menu-open {
+  transform: translateX(-400px);
+}
+@media (max-width: 768px) {
+  .menu-open {
+    transform: translateX(-260px);
+  }
+}
+
+.mobile {
+  display: none;
+  float: right;
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+@media (max-width: 768px) {
+  .mobile {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+.off-canvas-menu {
+  position: fixed;
+  width: 400px;
+  height: 100%;
+  min-height: 100vh;
+  top: 0;
+  right: -400px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: inset 6px 0px 10px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s;
+}
+@media (max-width: 768px) {
+  .off-canvas-menu {
+    width: 260px;
+    right: -260px;
+  }
+}
+.off-canvas-menu .link {
+  padding: 1em;
+  width: 100%;
+  color: black;
+  border-bottom: 1px solid black;
+}
+.off-canvas-menu .link a {
+  text-decoration: none;
+}
+
+.body-wrapper {
+  margin: 0 auto;
+  animation: 0.75s slideUpContent;
+}
+.body-wrapper > div > div {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2em;
+}
+@media (max-width: 550px) {
+  .body-wrapper > div > div {
+    padding: 1em;
+  }
+}
+.body-wrapper .about {
+  margin: 0 auto;
+  text-align: left;
+  max-width: 80%;
+}
+@media (max-width: 768px) {
+  .body-wrapper .about {
+    max-width: none;
+  }
+}
+.body-wrapper .suppliers {
+  color: #2c2e32;
+  background: #666b7a;
+  overflow: hidden;
+  padding: 2rem;
+}
+.body-wrapper .suppliers > div div {
+  float: left;
+  max-width: 45%;
+  padding-right: 5%;
+}
+.body-wrapper .suppliers > div div .left {
+  padding-right: 0.5em;
+}
+.body-wrapper .suppliers > div div .left ul {
+  padding: 1em;
+}
+.body-wrapper .suppliers > div div .right {
+  padding-left: 0.5em;
+}
+@media (max-width: 768px) {
+  .body-wrapper .suppliers > div div {
+    display: block;
+  }
+  .body-wrapper .suppliers > div div .left,
+  .body-wrapper .suppliers > div div .right {
+    padding: 0;
+  }
+  .body-wrapper .suppliers > div div .left ul {
+    padding: 0.5em 1em;
+  }
+}
+.body-wrapper .contact {
+  position: relative;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+}
+.body-wrapper .contact a {
+  transition: all 0.2s;
+  color: #fff !important;
+}
+.body-wrapper .contact .contact-background {
+  position: absolute;
+  max-width: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.body-wrapper .contact .contact-header {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+.body-wrapper .contact > div {
+  display: flex;
+  z-index: 1;
+}
+.body-wrapper .contact > div .info {
+  margin-top: 2em;
+  padding-left: 0.5em;
+  flex-grow: 1;
+  color: white;
+  text-align: center;
+}
+.body-wrapper .contact > div .info div {
+  margin: 0.7em 0;
+  font-size: 1.5em;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+}
+.body-wrapper .contact > div .info div i {
+  vertical-align: middle;
+}
+.body-wrapper .contact > div .info div a {
+  text-decoration: none;
+}
+.body-wrapper .contact > div .form {
+  padding-right: 0.5em;
+  padding-bottom: 1em;
+  flex-grow: 1;
+}
+.body-wrapper .contact > div .form .msg {
+  position: absolute;
+}
+.body-wrapper .contact > div .form .msg i {
+  cursor: pointer;
+}
+.body-wrapper .contact > div .form input,
+.body-wrapper .contact > div .form textarea {
+  display: block;
+  margin: 0.5em auto;
+  width: 100%;
+  appearance: none;
+  padding: 0.75em;
+  background: rgba(175, 175, 175, 0.25);
+  border: 1px solid white;
+  border-radius: 0;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+  color: white;
+  resize: vertical;
+  font: 500 5rem "Zilla Slab";
+  max-width: 900px;
+  transition: all 0.2s;
+  outline: none;
+}
+.body-wrapper .contact > div .form input:hover, .body-wrapper .contact > div .form input:focus,
+.body-wrapper .contact > div .form textarea:hover,
+.body-wrapper .contact > div .form textarea:focus {
+  background: white;
+  color: black;
+}
+.body-wrapper .contact > div .form input:hover::placeholder, .body-wrapper .contact > div .form input:focus::placeholder,
+.body-wrapper .contact > div .form textarea:hover::placeholder,
+.body-wrapper .contact > div .form textarea:focus::placeholder {
+  color: black;
+}
+.body-wrapper .contact > div .form input::placeholder,
+.body-wrapper .contact > div .form textarea::placeholder {
+  transition: all 0.2s;
+  color: white;
+}
+.body-wrapper .contact > div .form .button {
+  text-align: left;
+  background: transparent;
+}
+@media (max-width: 768px) {
+  .body-wrapper .contact > div {
+    flex-wrap: wrap;
+  }
+  .body-wrapper .contact > div .info,
+  .body-wrapper .contact > div .form {
+    padding: 0;
+    width: 100%;
+  }
+  .body-wrapper .contact > div .info {
+    margin-top: 0.75em;
+  }
+  .body-wrapper .contact > div .form {
+    width: 100%;
+  }
+}
+.body-wrapper .location {
+  width: 100%;
+  margin: 0 auto;
+}
+.body-wrapper .location #map {
+  width: 100%;
+  height: 25em;
+  max-width: none;
+}
+
+.cards {
+  margin: 1rem 0 2rem;
+  overflow: hidden;
+}
+.cards .card {
+  max-width: 22%;
+  float: left;
+  margin: 0 1.5%;
+  padding: 1rem;
+  text-decoration: none;
+  border: 1px solid #000;
+  drop-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+.cards .card img {
+  max-width: 100%;
+}
+.cards .card .tag {
+  font-size: 0.8rem;
+  font-weight: 200;
+}

@@ -1,0 +1,541 @@
+//import font
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@100;200;300;400;500;600;700;800&display=swap");
+
+//font vars
+$font-family: "Zilla Slab";
+$font: 500 5rem $font-family;
+//breakpoints
+$desktop: 1024px;
+$big-font-breakpoint: $desktop * 1.25;
+$tablet: 768px;
+$mobile: 550px;
+//offcanvas menu vars
+$nav-width: 400px;
+$mobile-nav-width: 260px;
+
+//global resets
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: $font;
+  letter-spacing: 3px;
+}
+
+//make site larger recursively on big screens
+//this is due to having everything in ems
+//cool beans
+@media (min-width: $big-font-breakpoint) {
+  body {
+    font-size: 1.25em !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  appearance: none;
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+//base button style
+.button {
+  display: inline-block;
+  padding: 0.75em 1em;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  appearance: none;
+  text-decoration: none;
+
+  &:hover {
+    background: white;
+    color: black;
+  }
+}
+
+h1 {
+  margin-top: -0.2em;
+  padding-bottom: 0.25em;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 100;
+  color: #333;
+  &:hover {
+    text-deoration: none;
+    font-weight: 800;
+  }
+}
+.wrapper {
+  transition: all 0.2s;
+}
+
+.header-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 475px;
+  overflow: hidden;
+  color: white;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+  }
+
+  .header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://picsum.photos/seed/1243/2000/800.webp") no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(60%);
+    transition: 1s filter linear;
+    z-index: -1;
+  }
+
+  &:hover .header-background {
+    filter: grayscale(0%);
+    transition: 1s filter linear;
+  }
+
+  .hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    header {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 0em;
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+    }
+
+    subhead {
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+    }
+
+    .cta {
+      display: block;
+      margin: 1em auto;
+      max-width: 200px;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    margin: 0.5em auto;
+    background: white;
+    padding: 1em;
+    padding-bottom: 0.75em;
+    color: black;
+    font-weight: 800;
+    font-size: 1.5em;
+    text-align: center;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+
+    div {
+      font-size: 3em;
+      line-height: 0.75em;
+    }
+
+    span {
+      font-size: 0.75em;
+      font-weight: 400;
+      position: relative;
+      background: white;
+      padding: 0.4em;
+      z-index: 1;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 0.075em;
+        width: 125%;
+        background: black;
+        z-index: -1;
+      }
+    }
+  }
+
+  .nav {
+    z-index: 2;
+    margin: 0 auto;
+    padding: 1em;
+    max-width: $big-font-breakpoint;
+    user-select: none;
+    font-size: 1rem;
+
+    .links {
+      display: inline-block;
+      float: right;
+      margin-top: 0.5em;
+
+      a {
+        color: #fff !important;
+      }
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
+
+      .link {
+        display: inline-block;
+        margin-left: 0.5em;
+        position: relative;
+        cursor: pointer;
+        font-weight: 400;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -0.25em;
+          left: 0;
+          width: 0%;
+          height: 0.075em;
+          background: white;
+          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+          transition: all 0.2s;
+        }
+
+        &:hover {
+          &:after {
+            content: "";
+            width: 100%;
+          }
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+//mobile menu stuff
+.menu-open {
+  transform: translateX($nav-width * -1);
+
+  @media (max-width: $tablet) {
+    transform: translateX($mobile-nav-width * -1);
+  }
+}
+
+.mobile {
+  display: none;
+  float: right;
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+
+  @media (max-width: $tablet) {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+.off-canvas-menu {
+  position: fixed;
+  width: $nav-width;
+  height: 100%;
+  min-height: 100vh;
+  top: 0;
+  right: $nav-width * -1;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: inset 6px 0px 10px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s;
+
+  @media (max-width: $tablet) {
+    width: $mobile-nav-width;
+    right: $mobile-nav-width * -1;
+  }
+
+  .link {
+    padding: 1em;
+    width: 100%;
+    color: black;
+    border-bottom: 1px solid black;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.body-wrapper {
+  margin: 0 auto;
+  animation: 0.75s slideUpContent;
+
+  > div > div {
+    max-width: $big-font-breakpoint;
+    margin: 0 auto;
+    padding: 2em;
+
+    @media (max-width: $mobile) {
+      padding: 1em;
+    }
+  }
+
+  .about {
+    margin: 0 auto;
+    text-align: left;
+    max-width: 80%;
+
+    @media (max-width: $tablet) {
+      max-width: none;
+    }
+  }
+
+  .suppliers {
+    color: #2c2e32;
+    background: #666b7a;
+    overflow: hidden;
+    padding: 2rem;
+
+    > div div {
+      float: left;
+      max-width: 45%;
+      padding-right: 5%;
+      .left {
+        padding-right: 0.5em;
+
+        ul {
+          padding: 1em;
+        }
+      }
+
+      .right {
+        padding-left: 0.5em;
+      }
+
+      @media (max-width: $tablet) {
+        display: block;
+
+        .left,
+        .right {
+          padding: 0;
+        }
+
+        .left {
+          ul {
+            padding: 0.5em 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    position: relative;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    a {
+      transition: all 0.2s;
+      color: #fff !important;
+    }
+
+    .contact-background {
+      position: absolute;
+      max-width: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .contact-header {
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+      text-align: center;
+    }
+
+    > div {
+      display: flex;
+      z-index: 1;
+
+      .info {
+        margin-top: 2em;
+        padding-left: 0.5em;
+        flex-grow: 1;
+        color: white;
+        text-align: center;
+
+        div {
+          margin: 0.7em 0;
+          font-size: 1.5em;
+          text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+
+          i {
+            vertical-align: middle;
+          }
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .form {
+        padding-right: 0.5em;
+        padding-bottom: 1em;
+        flex-grow: 1;
+
+        .msg {
+          position: absolute;
+
+          i {
+            cursor: pointer;
+          }
+        }
+
+        input,
+        textarea {
+          display: block;
+          margin: 0.5em auto;
+          width: 100%;
+          appearance: none;
+          padding: 0.75em;
+          background: rgba(175, 175, 175, 0.25);
+          border: 1px solid white;
+          border-radius: 0;
+          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+          color: white;
+          resize: vertical;
+          font: $font;
+          max-width: 900px;
+          transition: all 0.2s;
+          outline: none;
+
+          &:hover,
+          &:focus {
+            background: white;
+            color: black;
+
+            &::placeholder {
+              color: black;
+            }
+          }
+
+          &::placeholder {
+            transition: all 0.2s;
+            color: white;
+          }
+        }
+
+        .button {
+          text-align: left;
+          background: transparent;
+        }
+      }
+
+      @media (max-width: $tablet) {
+        flex-wrap: wrap;
+
+        .info,
+        .form {
+          padding: 0;
+          width: 100%;
+        }
+
+        .info {
+          margin-top: 0.75em;
+        }
+
+        .form {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .location {
+    width: 100%;
+    margin: 0 auto;
+
+    #map {
+      width: 100%;
+      height: 25em;
+      max-width: none;
+    }
+  }
+}
+
+.cards {
+  .card {
+    max-width: 22%;
+    float: left;
+    margin: 0 1.5%;
+    padding: 1rem;
+    text-decoration: none;
+    border: 1px solid #000;
+    drop-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+
+    img {
+      max-width: 100%;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      font-weight: 200;
+    }
+  }
+
+  margin: 1rem 0 2rem;
+  overflow: hidden;
+}
